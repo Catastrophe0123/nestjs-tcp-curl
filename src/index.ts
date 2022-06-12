@@ -12,7 +12,7 @@ program
 	.version('0.0.1');
 
 program = program
-	.command('request')
+	// .command('request')
 	.description('send a TCP request to an endpoint')
 	.argument(
 		'<url>',
@@ -25,17 +25,20 @@ program = program
 	.requiredOption('-d, --data <type>', 'The payload of the request');
 
 program.parse(process.argv);
-console.log('argv : ', process.argv);
 
 let options = program.opts();
+console.log('options: ', options, program.args);
+const url = program.args[0];
 
 const client = new net.Socket();
 
-client.connect(options.url, () => {
+const [host, port] = url.split(':');
+
+client.connect(parseInt(port), host, () => {
 	console.log('connected');
 	const payload = {
 		pattern: options.pattern,
-		data: options.data,
+		data: JSON.parse(options.data),
 		id: randomUUID(),
 	};
 	const message = JSON.stringify(payload);
