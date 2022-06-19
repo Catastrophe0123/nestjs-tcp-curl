@@ -6,6 +6,7 @@ export interface Options {
 	json: boolean;
 	data: any;
 	humanReadable: boolean;
+	onlyResponse: boolean;
 }
 
 export class Program {
@@ -35,7 +36,12 @@ export class Program {
 				'Set this flag to treat the data as JSON.',
 				false
 			)
-			.option('-hr, --human-readable', 'Human readable output', false);
+			.option('-hr, --human-readable', 'Human readable output', false)
+			.option(
+				'-o, --only-response',
+				'Prints just the response json without message length',
+				false
+			);
 	}
 
 	parse(source: string[]): Options {

@@ -35,6 +35,9 @@ client.on('data', function (data) {
 		const { length, message } = deserializeMessage(data.toString());
 		console.log('message length : ', length);
 		console.log(JSON.stringify(JSON.parse(message), null, 4));
+	} else if (options.onlyResponse) {
+		const { message } = deserializeMessage(data.toString());
+		console.log(message);
 	} else {
 		console.log(data.toString());
 	}
