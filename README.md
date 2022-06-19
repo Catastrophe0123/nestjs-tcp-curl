@@ -25,7 +25,7 @@ Dont set `--json` if you are sending string data in the payload for example.
 Complete Example
 
 ```
-npx nestjs-tcp-curl localhost:3000 --pattern sum --json --data '[1,2]'
+npx nestjs-tcp-curl 127.0.0.1:3000 --pattern sum --json --data '[1,2]'
 ```
 
 ## Arguments
@@ -36,10 +36,11 @@ npx nestjs-tcp-curl localhost:3000 --pattern sum --json --data '[1,2]'
 
 ## Flags
 
-| Flag                 | Description                                                                                                                                  |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| -v, --version        | Output the version number                                                                                                                    |
-| -p, --pattern <type> | The pattern for the route. Required by Nestjs for route matching. Refer [nestjs docs](https://docs.nestjs.com/microservices/basics#patterns) |
-| -d, --data <type>    | The payload of the request                                                                                                                   |
-| -j, --json           | Set this flag to treat the data as JSON. (default: false)                                                                                    |
-| -h, --help           | Display help for command.                                                                                                                    |
+| Flag                  | Description                                                                                                                                  |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| -v, --version         | Output the version number                                                                                                                    |
+| -p, --pattern <type>  | The pattern for the route. Required by Nestjs for route matching. Refer [nestjs docs](https://docs.nestjs.com/microservices/basics#patterns) |
+| -d, --data <type>     | The payload of the request                                                                                                                   |
+| -j, --json            | Set this flag to treat the data as JSON. (default: false)                                                                                    |
+| -hr, --human-readable | Human readable output command.                                                                                                               |
+| -h, --help            | Display help for command.                                                                                                                    |

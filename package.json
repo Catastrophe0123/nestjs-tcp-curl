@@ -30,10 +30,13 @@
 		"build": "rimraf ./dist && tsc",
 		"test": "echo 'no tests'",
 		"test:watch": "jest --watch",
-		"lint": "prettier --check ."
+		"publish:np": "np --no-2fa",
+		"lint": "prettier --check .",
+		"prepublishOnly": "yarn build"
 	},
 	"devDependencies": {
 		"@types/node": "^17.0.39",
+		"np": "^7.6.1",
 		"prettier": "^2.7.1",
 		"rimraf": "^3.0.2",
 		"ts-node-dev": "^1.1.6",
