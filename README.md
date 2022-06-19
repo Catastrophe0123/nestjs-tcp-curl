@@ -43,4 +43,5 @@ npx nestjs-tcp-curl 127.0.0.1:3000 --pattern sum --json --data '[1,2]'
 | -d, --data <type>     | The payload of the request                                                                                                                   |
 | -j, --json            | Set this flag to treat the data as JSON. (default: false)                                                                                    |
 | -hr, --human-readable | Human readable output command.                                                                                                               |
+| -o, --only-response   | Prints just the response json without message length                                                                                         |
 | -h, --help            | Display help for command.                                                                                                                    |
