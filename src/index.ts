@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import net from 'net';
 import { randomUUID } from 'crypto';
 import { Program } from './program';
