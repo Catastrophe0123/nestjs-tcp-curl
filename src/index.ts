@@ -22,7 +22,8 @@ program = program
 		'-p, --pattern <type>',
 		'The pattern for the route. Required by Nestjs for route matching.'
 	)
-	.requiredOption('-d, --data <type>', 'The payload of the request');
+	.requiredOption('-d, --data <type>', 'The payload of the request')
+	.option('-j, --json', 'Set this flag to treat the data as JSON.', false);
 
 program.parse(process.argv);
 
@@ -38,7 +39,7 @@ client.connect(parseInt(port), host, () => {
 	console.log('connected');
 	const payload = {
 		pattern: options.pattern,
-		data: JSON.parse(options.data),
+		data: options.json ? JSON.parse(options.data) : options.data,
 		id: randomUUID(),
 	};
 	const message = JSON.stringify(payload);
