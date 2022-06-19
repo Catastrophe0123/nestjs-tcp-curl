@@ -14,3 +14,11 @@ export const parseAddress = (url: string): { host: string; port: number } => {
 
 	return { host, port: portNumber };
 };
+
+export const deserializeMessage = (
+	data: string
+): { length: string; message: string } => {
+	// splits only the first occurrence of #
+	const [length, message] = data.split(/#(.*)/s);
+	return { length, message };
+};

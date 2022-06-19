@@ -3,7 +3,11 @@
 import net from 'net';
 import { randomUUID } from 'crypto';
 import { Program } from './program';
-import { parseAddress, serializeMessage } from './utils/utils';
+import {
+	deserializeMessage,
+	parseAddress,
+	serializeMessage,
+} from './utils/utils';
 
 // Usage -> nest-tcp-curl url -p pattern --data '{hello: world}'
 // Example -> nest-tcp-curl localhost:3000 -p qwerty --data { 'hello': 'world' }
@@ -27,8 +31,13 @@ client.connect(port, host, () => {
 });
 
 client.on('data', function (data) {
-	console.log(data.toString());
+	if (options.humanReadable) {
+		const { length, message } = deserializeMessage(data.toString());
+		console.log('message length : ', length);
+		console.log(JSON.stringify(JSON.parse(message), null, 4));
+	} else {
+		console.log(data.toString());
+	}
+
 	client.destroy(); // kill client after server's response
 });
-
-// client.on('close', function () {});

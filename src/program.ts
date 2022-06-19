@@ -5,6 +5,7 @@ export interface Options {
 	url: string;
 	json: boolean;
 	data: any;
+	humanReadable: boolean;
 }
 
 export class Program {
@@ -15,7 +16,7 @@ export class Program {
 		this.program
 			.name('nest-tcp-curl')
 			.description('CLI to test nestjs TCP microservices')
-			.version('0.0.1');
+			.version('0.1.2');
 
 		this.program = this.program
 			// .command('request')
@@ -33,7 +34,8 @@ export class Program {
 				'-j, --json',
 				'Set this flag to treat the data as JSON.',
 				false
-			);
+			)
+			.option('-hr, --human-readable', 'Human readable output', false);
 	}
 
 	parse(source: string[]): Options {
