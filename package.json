@@ -1,7 +1,7 @@
 {
 	"name": "nestjs-tcp-curl",
 	"description": "A simple command line utility to quickly interact with Nestjs TCP transport based microservices",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"main": "dist/index.js",
 	"bin": "dist/index.js",
 	"author": "Navaneeth V",
